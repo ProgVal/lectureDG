@@ -3,7 +3,7 @@ Image Processing, Digital Geometry and Computational Geometry Course
 
 This material corresponds to a course on elementary image processing, digital geometry and computational geometry. In French, it corresponds to the lecture "Images Numériques et Géométrie Discrète" at the ENS-Lyon (Ecole Normale Supérieure de Lyon) and Univesité Claude Bernard Lyon 1.
 
-First slides are in French but most of them are in English. The content is "work in progress" and is updated continously. As a consequence, it may contain errors. If you found ones, please contact the author or create a <a href="https://github.com/dcoeurjo/lectureDG/issues/new">github issue</a>.
+First slides are in French but most of them are in English. The content is "work in progress" and is updated continously. As a consequence, it may contain errors. If you found some, please contact the author or create a <a href="https://github.com/dcoeurjo/lectureDG/issues/new">github issue</a>.
 
 Content
 -------
@@ -18,20 +18,20 @@ slides, you would need:
 
 Once installed, the build is rather simple:
 
-    ./make html
-    ./make pdflatex
+    make html
+    make latexpdf
 
 or
 
-    ./make slides
+    make slides
 
 
 Then, the output is given in the *build* folder.
 
-Examples (*NOT UP-TO-DATE*):
-  - HTML pages: https://liris.cnrs.fr/david.coeurjolly/cours/ENS2014/html/
-  - HTML5 slides: https://liris.cnrs.fr/david.coeurjolly/cours/ENS2014/html/slides/
-  - PDF single document: https://liris.cnrs.fr/david.coeurjolly/cours/ENS2014/latex/Images.pdf
+Examples:
+  - HTML pages: https://liris.cnrs.fr/david.coeurjolly/cours/ENS2015/html/
+  - HTML5 slides: https://liris.cnrs.fr/david.coeurjolly/cours/ENS2015/html/slides/
+  - PDF single document: https://liris.cnrs.fr/david.coeurjolly/cours/ENS2015/latex/Images.pdf
 
 
 Author
@@ -51,5 +51,4 @@ Illustrations come from many sources (previous lectures, personnal tech reports,
 Some of them have been provided by colleagues and I'd like to thank them: Jacques-Olivier Lachaud, Tristan Roussillon, Isabelle Sivignon, Olivier Devillers, Nicolas Normand and Guillaume Iooss.
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dcoeurjo/lecturedg/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 

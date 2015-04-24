@@ -22,7 +22,7 @@ Introduction
 * Length, surface area, ...
 * Tangents / normal vectors
 * Curvature, ...
-* Area/Volume, geometrical moments
+* Area / Volume, geometrical moments
 * ...
 
 **Algorithmic point of view**
@@ -36,7 +36,7 @@ Mathematical Context
 **Multigrid analysis** Gauss digitization scheme parametrized by a grid-step
 
   .. math::
-         Dig(X,h) = \left (\frac{1}{h}\cdot \mathcal{X}\right )\cap \mathbb{Z}^n
+         Dig(\mathcal{X},h) = \left (\frac{1}{h}\cdot \mathcal{X}\right )\cap \mathbb{Z}^n
 
 
 .. list-table::
@@ -384,7 +384,7 @@ Maximal Segment Analysis
 * Suppose P=(0,0), we have, `\forall x\in[0,l]`:math:
 
    .. math::
-      \alpha_h - 2h \leq f(x) \leq \alpha_h + 2h\, \Leftrightarrow\, \alpha_h=\frac{f(x) + O(h)}{x}
+      \alpha_hx- 2h \leq f(x) \leq \alpha_hx + 2h\, \Leftrightarrow\, \alpha_h=\frac{f(x) \pm O(h)}{x}
 
 
   .. image:: _static/images/Estim/estimationTangente.*
@@ -437,7 +437,7 @@ Curvature Estimation
 
 **Circumscribing circle from two half-tangent**
 
-* Idea: locally, estimate left/right half-tangents (resp. OP and PQ) and estimate `\tilde{r}=h(\frac{|OP||PQ|QO|}{4\mathcal{A}_{OPQ}})`:math:
+* Idea: locally, estimate left/right half-tangents (resp. OP and PQ) and estimate `\tilde{r}=h\left(\frac{|OP| |PQ| |QO|}{4\mathcal{A}_{OPQ}}\right)`:math:
 * The neighborhood is locally adapted but convergence if `l = \Theta(h^{-1/2})`:math: (see below)
 * Noise sensitive
 
@@ -481,7 +481,7 @@ Step 1: Digital Convex Hull
        c_1(X) h^{-\frac{2}{3}} \leq n_e \leq c_2(X)h^{-\frac{2}{3}}
 
    .. math::
-       \Rightarrow n_e = \Theta(h^{-\frac{2}{3}})
+       \Rightarrow n_e = \Theta\left(h^{-\frac{2}{3}}\right)
 
 
 
@@ -509,12 +509,12 @@ Step 2: Number of maximal segments
 If `\partial X`:math: is convex and  `C^3`:math:
 
    .. math::
-        \frac{n_e}{\Theta(log(h^{-1}))} \leq n_{MS} \leq 3 n_e
+        \frac{n_e}{\Theta(\log(h^{-1}))} \leq n_{MS} \leq 3 n_e
 
 
 *Hence*
    .. math::
-      \Theta\left (\frac{h^{-\frac{2}{3}}}{log(h^{-1})}\right ) \leq n_{MS} \leq \Theta(h^{-\frac{2}{3}})
+      \Theta\left (\frac{h^{-\frac{2}{3}}}{\log(h^{-1})}\right ) \leq n_{MS} \leq \Theta(h^{-\frac{2}{3}})
 
 
 
@@ -867,6 +867,33 @@ Illustrations
 
      - .. image:: _static/images/Estim/Bunny_64_k1.png
           :width: 100%
+          :align: center
+
+
+
+Feature Selection
+-----------------
+
+**Idea** Use scale-space behavior of II estimators to classify surfels
+into *flat,smooth,edge* regions
+
+.. list-table::
+
+  *  - .. image:: _static/images/Feature/Bunny_512_II_scale.png
+          :width: 70%
+          :align: center
+
+
+     - .. image:: _static/images/Feature/Snow_I08_II_scale.png
+          :width: 70%
+          :align: center
+
+  *  - .. image:: _static/images/Feature/OctaFlower_512_noise_II_scale.png
+          :width: 70%
+          :align: center
+
+     - .. image:: _static/images/Feature/OctaFlower_512_II_scale.png
+          :width: 70%
           :align: center
 
 

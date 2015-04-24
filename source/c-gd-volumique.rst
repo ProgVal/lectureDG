@@ -170,7 +170,7 @@ Examples
 
 * `d_1(p,q) = \| p-q\|_1 = \sum_{i=1}^n |p_i - q_i |`:math:
 * `d_\infty(p,q) = \| p-q\|_\infty   = \max_{i=1..n} \{|p_i - q_i |\}`:math:
-* `d_2(p,q) = \| p-q\|_2 =  = \sqrt{\sum_{i=1}^n (p_i - q_i)^2}`:math:
+* `d_2(p,q) = \| p-q\|_2 = \sqrt{\sum_{i=1}^n (p_i - q_i)^2}`:math:
 
 * *Weighted* `l_p`:math: *metric:* `d_p(p,q) =   \| p -q\|_p = \left ( \sum_{i=1}^n w_i|p_i-q_i |^p \right )^{\frac{1}{p}}`:math:
 
@@ -332,7 +332,7 @@ Distance Transformation algorithm with Chamfer Masks
 * Implicitly construct a regular graph from `\mathbb{Z}^n`:math: vertices and edges taken from `\mathcal{M}`:math:
 * Use Dijkstra's like algorithm to propagate distances from background points
 
-`\Rightarrow`:math: *Computation cost in* `O(mnlogn)`:math: for `n`:math: grid points and `|\mathcal{M}|=m`:math:
+`\Rightarrow`:math: *Computation cost in* `O(mn\log n)`:math: for `n`:math: grid points and `|\mathcal{M}|=m`:math:
 
 
 .. list-table::
@@ -390,7 +390,7 @@ Other path-based distances
 Sometimes, explicit forms exist
 
   .. math::
-    d_{oct}(p,q)=\max \left \{ \left \lfloor\frac{2}{3} d_1(p,q) + 1)\right\rfloor, d_\infty(p,q)  \right\}
+    d_{oct}(p,q)=\max \left \{ \left \lfloor\frac{2}{3} d_1(p,q) + 1\right\rfloor, d_\infty(p,q)  \right\}
 
 
 * Bit more difficult to ensure that a sequence/weighted sequence induce a metric
@@ -423,7 +423,7 @@ Separable Approach For Squared Euclidean Distance Transform
 **We want to compute** (for all `p\in X`:math:)
 
    .. math::
-       DT_2(p) = \min_{q\in\bar{X}} \{ d_2(p,q)\} =\sqrt{ \min_{q\in\bar{X}} \{ (p_1 - q_1)^2 + (p_2 - q_2)^2)\}}
+       DT_2(p) = \min_{q\in\bar{X}} \{ d_2(p,q)\} =\sqrt{ \min_{q\in\bar{X}} \{ (p_1 - q_1)^2 + (p_2 - q_2)^2\}}
    .. math::
        DT_2(p) = \sqrt { \min_{q\in\bar{X}} SEDT(p) }
 
@@ -698,13 +698,13 @@ Path based Metrics
 
 **Better expected bounds for path based norms**
 
-+---------------------+--------------------+------------------------+------------------------------------------+
-|Metric               | C                  | H                      | Total                                    |
-+=====================+====================+========================+==========================================+
-|Chamfer with adapter | `O(m)`:math:       |`O(m\cdot log(m))`:math:| `O(d\cdot m\cdot n^d\cdot\log(n))`:math: |
-+---------------------+--------------------+------------------------+------------------------------------------+
-|**Chamfer Norms**    | `O(log(m))`:math:  |`O(log^2(m))`:math:     | `O(d\cdot n^d\cdot\log^2(m))`:math:      |
-+---------------------+--------------------+------------------------+------------------------------------------+
++---------------------+---------------------+-------------------------+------------------------------------------+
+|Metric               | C                   | H                       | Total                                    |
++=====================+=====================+=========================+==========================================+
+|Chamfer with adapter | `O(m)`:math:        |`O(m\cdot log(m))`:math: | `O(d\cdot m\cdot n^d\cdot\log(n))`:math: |
++---------------------+---------------------+-------------------------+------------------------------------------+
+|**Chamfer Norms**    | `O(\log(m))`:math:  |`O(\log^2(m))`:math:     | `O(d\cdot n^d\cdot\log^2(m))`:math:      |
++---------------------+---------------------+-------------------------+------------------------------------------+
 
 Similar expected results for neighborhood sequences
 
@@ -952,7 +952,7 @@ Reverse Transformation
  Given a *metric* `(d,E,G)`:math: and a set of balls `\mathcal{B}=\{ B_i=(p_i,r_i)\in E\times G\}_{i=1\ldots N}`:math:, reconstruct the binary shape `X`:math:
 
    .. math::
-       X = \bigcup_{i=0\ldots N} B_i
+       X = \bigcup_{i=1\ldots N} B_i
 
 **Why?**
 
@@ -985,7 +985,7 @@ Let us denote `p_k=(x_k,y_k)`:math: for `k=1\ldots N`:math:, then
 Which can be rewritten
 
   .. math::
-     X =\left \{ (i,j)\,|\, max_{k=1\ldots N}\{ r_k^2 -(i - x_k)^2 - (j-y_k)^2\} >0\right \}
+     X =\left \{ (i,j)\,|\, \max_{k=1\ldots N}\{ r_k^2 -(i - x_k)^2 - (j-y_k)^2\} >0\right \}
 
 `\Rightarrow`:math: **Separable decomposition**
 
@@ -1190,7 +1190,7 @@ Let us consider a *IsCoveredBy(B,B')* a predicate returning true if `B\subseteq 
 
 * If B and B' are *Euclidean balls* `\Rightarrow`:math: The predicate is in  `O(1)`:math:
 
-* If B and B' are *Digital balls* `\Rightarrow`:math: The predicate is in  `O(max(|B|,|B'|))`:math:
+* If B and B' are *Digital balls* `\Rightarrow`:math: The predicate is in  `O(\max(|B|,|B'|))`:math:
 
 
      `B\subset B'`:math: `\Rightarrow`:math: `(B\cap\mathbb{Z}^2)\subset (B'\cap\mathbb{Z}^2)`:math:
